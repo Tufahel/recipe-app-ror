@@ -55,6 +55,11 @@ To run tests enter `rspec` command on your terminal
 - Twitter: [@TufahelAhmed](https://twitter.com/TufahelAhmed)
 - LinkedIn: [@Tufahel-Ahmed](https://www.linkedin.com/in/tufahel-ahmed/)
 
+👤 **Jamila Moseka**
+
+- GitHub: [@jmoseka](https://github.com/jmoseka)
+- Twitter: [@milamoseka](https://twitter.com/milamoseka)
+- LinkedIn: [Jamila Moseka](https://linkedin.com/in/jamila-moseka)
 
 ## 🤝 Contributing
 
