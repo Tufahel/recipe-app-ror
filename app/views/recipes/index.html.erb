@@ -1,0 +1,16 @@
+<div>
+<h1>Recipe List</h1>
+
+<div > <%= link_to 'New Recipe', new_recipe_path %></div>
+
+  <% current_user.recipes.each do |recipe| %>
+    <div>
+    <%= link_to 'See this recipe', recipe_path(recipe.id) %>
+    <h2><%= recipe.name %></h2>
+    <%= button_to "Delete Recipe", recipe_path(recipe.id), method: :delete, 
+      data: {confirm: 'Are you sure?'}, class: "btn btn-primary" %>
+    </div>
+    <p><%= recipe.description %></p>
+    <% end %>
+    <%= @recipe%>
+</div>

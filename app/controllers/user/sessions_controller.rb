@@ -11,11 +11,11 @@ class User::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  def create
-    super do |resource|
-      BackgroundWorker.trigger(resource)
-    end
-  end
+  # def create
+  #   super do |resource|
+  #     BackgroundWorker.trigger(resource)
+  #   end
+  # end
 
   # DELETE /resource/sign_out
   # def destroy

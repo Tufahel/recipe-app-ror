@@ -1,0 +1,53 @@
+<div>
+  <h1><%= @recipe.name %></h1>
+  <h3>Preparation Time: <%= @recipe.preparation_time %> hours</h3>
+  <h3>Cooking Time: <%= @recipe.cooking_time %> hours</h3>  
+<label class="form-check-label">Public</label>
+<%= form_with url: recipe_path(@recipe), method: "put" do |form| %>
+          <div class="form-check form-switch fs-5 align-self-start">
+      <% if !@recipe.public %>
+        <%= form.check_box :public, id: "flexSwitchCheckDefault", class: "form-check-input", onchange: "this.form.submit();" %>
+        <%= form.label :public, class: "form-check-label fw-semi-bold", for: "flexSwitchCheckDefault" %>
+      <% else %>
+        <%= form.check_box :public, id: "flexSwitchCheckChecked", class: "form-check-input", onchange: "this.form.submit();" %>
+        <%= form.label :public, class: "form-check-label fw-semi-bold", for: "flexSwitchCheckChecked" %>
+      <% end %>
+    </div>
+  <% end %>
+  <div>
+    
+  <div>
+      <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe), class: 'btn btn-outline-dark' %>
+      <%= link_to 'Generate list', recipe_general_shopping_lists_path(@recipe) , class: 'btn btn-outline-dark' %>
+ 
+  </div>
+  
+  </div>
+
+   <table class="table">
+        <thead>
+            <tr>
+            <th >Food</th>
+            <th >Quantity</th>
+            <th >Price</th>
+            <th >Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <% @foods.each do |food|%>
+            <tr>
+            <td><%= food.food.name %></td>
+            <td><%= food.quantity %></td>
+            <td><%= food.food.price %></td>
+            <td><%= button_to "Delete Food", food_path(food.id), method: :delete, 
+                    data: {confirm: 'Are you sure?'}, class: "btn btn-primary" %> </td>
+            
+            </tr>
+            <% end %>
+        </tbody>
+
+
+        </table>
+
+</div>

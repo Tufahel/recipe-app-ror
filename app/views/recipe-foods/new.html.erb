@@ -1,0 +1,24 @@
+<div>
+  <h2 class="heading">Add Recipe Food</h2>
+<div>
+<%= form_with model: [@recipe, @recipe.recipe_foods.create] do |f|%>
+    <div>
+
+    <div>
+    <%= f.label "food" %><br>
+    <%= f.collection_select :food_id, Food.all, :id, :name, prompt:true %><br>
+    </div>
+
+
+    <div>
+    <%= f.label "quantity" %><br>
+    <%= f.number_field :quantity, required: true, placeholder: '1',  min: 1%><br>
+    </div>
+
+    <div>
+    <%= f.submit "Create Recipe_Food" %>
+    </div>
+    </div>
+<%end%>
+</div>
+</div>
