@@ -1,0 +1,43 @@
+<%
+=begin%>
+ <h1> Name: <%= recipe.name %></h1>
+<div id="<%= dom_id recipe %>">
+     <p>Preparation time: <%= recipe.preperation_time %></p>
+     <p>Cooking time: <%= recipe.cooking_time %></p>
+</div> 
+<%
+=end%>
+
+<div>
+    <h1 class="text-center" > <%= recipe.name %></h1>
+    <div class="d-flex justify-content-between mx-5" id="<%= dom_id recipe %>">
+     <div>
+        <p>Preparation time: <%= recipe.preparation_time %>
+         <% if recipe.preparation_time > 1  %>
+           hours
+           <% else  %>
+          hour
+         <% end %> </p>
+         
+        <p>Cooking time: <%= recipe.cooking_time %> 
+        <% if recipe.cooking_time > 1  %>
+           hours
+           <% else  %>
+          hour
+         <% end %>
+         </p>
+     </div>
+     <div class="form-check form-switch">
+        <% if can? :manage, @recipe %>
+          <%= form_with(model: @recipe) do |form| %>
+            <%= form.check_box :public,onchange: 'this.form.submit();',class:"form-check-input"%>
+            <label class="form-check-label" for="flexSwitchCheckDefault">public</label>
+          <% end %>
+        <% else %>
+          <%= form_with(model: @recipe) do |form| %>
+            <%= form.check_box :public, disabled: true,class:"form-check-input" %>
+            <label class="form-check-label" for="flexSwitchCheckDefault">public</label>
+          <% end %>
+        <% end %>
+      </div>
+</div>

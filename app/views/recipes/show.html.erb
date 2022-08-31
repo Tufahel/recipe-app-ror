@@ -1,0 +1,42 @@
+<p style="color: green"><%= notice %></p>
+
+<section>
+  <%= render "recipe", recipe: @recipe %>
+  <p class="fw-bold mx-5">Steps go here...</p>
+  <div class="d-flex justify-content-between mx-5" >
+  <span>
+    <%= button_to "Generate shopping list", general_shopping_list_index_path, method: :get, class:"btn btn-success" %>
+    </span>
+   <% if can? :create, @recipe %>
+  <%= button_to "Add ingredient", new_recipe_recipe_food_path(@recipe), method: :get, class:"btn btn-light"  %>
+   <% end %>
+  </div>
+  <div class="m-4">
+    <table class="table border">
+    <thead>
+     <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Action</th>
+     </tr>
+    </thead>
+    
+      <% @recipe_foods.each do |recipe_food| %>
+      <tbody>
+        <td><%= link_to recipe_food.food.name,food_path(recipe_food.food.id) %></td>
+          <td><%= recipe_food.quantity %></td>
+          <td>$<%= recipe_food.food.price * recipe_food.quantity %></td>
+          <% if can? :destroy, @food %>
+          <td class="d-flex gap-2">
+          <%= button_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class:"btn btn-danger" %>
+          <% end %>
+         <button class="btn btn-primary">Modify</button></td>
+      </tbody>
+    <% end %>
+  </table>
+  </div>
+  <%= link_to "Back to recipe", recipes_path %>
+</section>
+
+
