@@ -1,14 +1,14 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.all
+    @foods = current_user.foods.all
   end
 
   def new
-    @food = Food.new
+    @food = current_user.foods.new
   end
 
   def create
-    @food = Food.new(food_params)
+    @food = current_user.foods.new(food_params)
 
     if @food.save
       flash[:success] = 'Food added successfully'
@@ -37,7 +37,7 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    my_food = params.require(:food).permit(:name, :measurement_unit, :price)
+    my_food = params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
     my_food[:user] = current_user
     my_food
   end
