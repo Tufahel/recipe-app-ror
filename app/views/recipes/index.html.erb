@@ -1,8 +1,6 @@
 <section>
   <div>
-  <% if can? :create, @recipes.first %>
-   <%= button_to "Add Recipe", new_recipe_path, method: :get, class:"btn btn-primary mx-4 my-2" %>
-   <% end %>
+  <%= button_to "Add Recipe", new_recipe_path, method: :get %>
   </div>
   <% if @recipes.exists? %>
       <% @recipes.each do |recipe| %>
