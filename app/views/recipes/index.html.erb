@@ -1,6 +1,6 @@
 <section>
   <div>
-  <% if can? :create, recipes.first %>
+  <% if can? :create, @recipes.first %>
   <%= button_to "Add Recipe", new_recipe_path, method: :get %>
   <% end %>
   </div>
