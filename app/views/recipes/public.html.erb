@@ -1,0 +1,24 @@
+
+<h2 class="text-center">Public Recipes</h2>
+
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+      <div class="container-fluid">
+        <div class="d-flex justify-content-around align-items-center border m-2">
+          <div class="m-3">
+            <p class="fw-bold"><%= recipe.name %></p>
+            <p><%= recipe.user.name %></p>  
+          </div>
+          <div class="m-3">
+            <% if recipe.public == false%>
+                <p><%= recipe.decription %></p>
+            <% else %>
+                <p>Total foods items: <%= RecipeFood.where(recipe_id: recipe.id).count %></p>
+                <% price = RecipeFood.where(recipe_id: recipe.id).reduce(0) { |sum, f| sum + (f.quantity*Food.find(f.food_id).price).to_f } %>
+                <p>Total price: $<%= price %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div> 
