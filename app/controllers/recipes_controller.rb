@@ -6,7 +6,8 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.where(user_id: current_user.id)
+    @user = current_user
+    @recipes = @user.recipes.all
   end
 
   def new
@@ -40,6 +41,17 @@ class RecipesController < ApplicationController
       flash[:error] = 'Something went wrong'
       render :show
     end
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.public = !@recipe.public
+
+    flash[:notice] = if @recipe.save
+                       %(This recipe is now #{@recipe.public ? 'public' : 'private'})
+                     else
+                       'failed to update recipe status'
+                     end
   end
 
   def recipe_params

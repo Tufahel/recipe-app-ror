@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  Rails.application.routes.default_url_options[:host] = "localhost:3000"
+  get 'general_shopping_list/index'
   devise_for :users, controllers: {
     sessions: 'user/sessions',
     registrations: 'user/registrations'
@@ -12,6 +14,6 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :recipe_foods
     end
-  resources :public_recipes
-  resources :general_shopping_list
+  resources :public_recipes, only: [:create, :destory] 
+  resources :general_shopping_list, only: [:create, :destory] 
 end

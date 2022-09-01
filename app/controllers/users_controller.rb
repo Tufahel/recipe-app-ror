@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-  def index; end
+  def index
+    @all_users = User.all
+  end
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+  end
 end
