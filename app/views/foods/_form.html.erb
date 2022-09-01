@@ -1,12 +1,12 @@
 <%= form_with model: food, url: foods_path  do |form| %>
-
+  <div class="d-flex flex-column justify-content-center align-items-center">
       <div>
          <%= form.label :name %><br />
          <%= form.text_field :name, autofocus: true, autocomplete: "text" %>
          <% food.errors.full_messages_for(:name).each do |message| %>
            <div><%= message %></div>
          <% end %>
-      </div><br />
+      </div>
 
       <div>
           <%= form.label :quantity %><br />
@@ -32,8 +32,9 @@
           <div><%= message %></div>
         <% end %>
     </div>
-    
-  <div>
-    <%= form.submit %>
+
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary m-2">Create Food</button>
   </div>
 <% end %>
