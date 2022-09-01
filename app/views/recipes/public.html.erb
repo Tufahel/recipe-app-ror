@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="d-flex justify-content-around align-items-center border m-2">
           <div class="m-3">
-            <p class="fw-bold"><%= recipe.name %></p>
+            <p class="fw-bold"><%= link_to recipe.name, recipes_path %></p>
             <p><%= recipe.user.name %></p>  
           </div>
           <div class="m-3">
