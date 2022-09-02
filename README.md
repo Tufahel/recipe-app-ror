@@ -43,12 +43,6 @@ To run tests enter `rspec` command on your terminal
 
 ## Authors
 
-👤 ****
-
-- GitHub:
-- Twitter:  
-- LinkedIn: 
-
 👤 **Tufahel Ahmed**
 
 - GitHub: [@Tufahel](https://github.com/Tufahel)
