@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  Rails.application.routes.default_url_options[:host] = "localhost:3000"
   get 'general_shopping_list/index'
   devise_for :users, controllers: {
     sessions: 'user/sessions',
