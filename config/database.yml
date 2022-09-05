@@ -84,3 +84,9 @@ production:
   database: recipe_app_ror_production
   username: recipe_app_ror
   password: <%= ENV["RECIPE_APP_ROR_DATABASE_PASSWORD"] %>
+  
+staging:
+  <<: *default
+  database: recipe_app_ror_staging
+  username: recipe_app_ror
+  password: <%= ENV["RECIPE_APP_ROR_DATABASE_PASSWORD"] %>
