@@ -12,6 +12,9 @@
 - Postgresql
 - Bootstrap 5
 
+## Live Demo
+For the link to the live demo, [Click here](https://polar-coast-98824.herokuapp.com/)
+
 ## Getting Started
 
 
