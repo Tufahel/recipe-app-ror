@@ -1,0 +1,13 @@
+<%= form_with model: recipe_food, url: recipe_recipe_foods_path  do |form| %>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+      <div>
+         <%= form.select :food_id, foods.collect { |food| [food.name, food.id]} %><br />
+      <div>
+      <div>
+        <%= form.label :quantity %><br />
+        <%= form.number_field :quantity, autofocus: true %>
+      </div>
+    <br />
+   <button type="submit" class="btn btn-primary">Create Recipe Food</button>
+  </div>
+<% end %>

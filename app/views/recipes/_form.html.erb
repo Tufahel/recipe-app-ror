@@ -1,0 +1,42 @@
+<%= form_with model: recipe, url: recipes_path  do |form| %>
+    <h2> <%= recipe.id %> </h2>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div>
+         <%= form.label :name %><br />
+          <%= form.text_field :name, autofocus: true, autocomplete: "text" %>
+          <% recipe.errors.full_messages_for(:name).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+   
+        <div>
+         <%= form.label :preparation_time %><br />
+          <%= form.number_field :preparation_time, autofocus: true %>
+          <% recipe.errors.full_messages_for(:preparation_time).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+  
+        <div>
+         <%= form.label :cooking_time %><br />
+          <%= form.number_field :cooking_time, autofocus: true %>
+          <% recipe.errors.full_messages_for(:cooking_time).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+  
+        <div>
+         <%= form.label :description %><br />
+          <%= form.text_field :description, autofocus: true %>
+          <% recipe.errors.full_messages_for(:description).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <div class="form-check form-switch">
+          <%= form.check_box :public, class:"form-check-input", id:"flexSwitchCheckDefault" %>
+          <label class="form-check-label" for="flexSwitchCheckDefault">Public</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Recipe</button>
+    </div>
+
+<% end %>
