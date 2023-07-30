@@ -1,0 +1,40 @@
+<%= form_with model: food, url: foods_path  do |form| %>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+      <div>
+         <%= form.label :name %><br />
+         <%= form.text_field :name, autofocus: true, autocomplete: "text" %>
+         <% food.errors.full_messages_for(:name).each do |message| %>
+           <div><%= message %></div>
+         <% end %>
+      </div>
+
+      <div>
+          <%= form.label :quantity %><br />
+          <%= form.number_field :quantity, autofocus: true %>
+          <% food.errors.full_messages_for(:quantity).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+      </div>
+   
+      <div>
+         <%= form.label :measurement_unit %><br />
+         <%= form.text_field :measurement_unit, autofocus: true %>
+         <% food.errors.full_messages_for(:measurement_unit).each do |message| %>
+           <div><%= message %></div>
+         <% end %>
+      </div>
+
+
+    <div>
+        <%= form.label :price %><br />
+        <%= form.number_field :price, autofocus: true %>
+        <% food.errors.full_messages_for(:price).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+    </div>
+
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary m-2">Create Food</button>
+  </div>
+<% end %>
